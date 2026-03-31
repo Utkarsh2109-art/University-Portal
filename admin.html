@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Dashboard | CampusFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+    <script src="js/admin.js" defer></script>
+  </head>
+  <body class="dashboard-page" data-page="admin">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">Admin Dashboard</div>
+        <h1>CampusFlow Control Center</h1>
+      </div>
+      <div class="topbar__actions">
+        <span id="adminWelcome" class="pill"></span>
+        <button id="logoutButton" class="btn btn--secondary" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero-card">
+        <div>
+          <div class="eyebrow">Managed Access</div>
+          <h2>Create student and instructor accounts from one place.</h2>
+          <p>
+            Student IDs are generated with the pattern <strong>126xxxxxxx</strong> and
+            instructor IDs with <strong>32xxxx</strong>.
+          </p>
+        </div>
+        <div class="hero-card__meta" id="accountSummary"></div>
+      </section>
+
+      <section class="dashboard-grid dashboard-grid--two">
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Signup Access</div>
+              <h3>Create Account</h3>
+            </div>
+          </div>
+
+          <form id="accountForm" class="form-grid">
+            <label>
+              <span>Role</span>
+              <select id="accountRole" name="role" required>
+                <option value="student">Student</option>
+                <option value="instructor">Instructor</option>
+              </select>
+            </label>
+
+            <label>
+              <span>Full name</span>
+              <input id="accountName" name="name" type="text" required />
+            </label>
+
+            <label>
+              <span>Email</span>
+              <input id="accountEmail" name="email" type="email" required />
+            </label>
+
+            <label>
+              <span>Department</span>
+              <input id="accountDepartment" name="department" type="text" required />
+            </label>
+
+            <label class="form-grid__full">
+              <span>Temporary password</span>
+              <input id="accountPassword" name="password" type="text" minlength="6" required />
+            </label>
+
+            <button class="btn btn--primary form-grid__full" type="submit">
+              Create managed account
+            </button>
+          </form>
+
+          <div id="accountResult" class="notice notice--hidden"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">People</div>
+              <h3>Provisioned Accounts</h3>
+            </div>
+          </div>
+          <div id="accountsList" class="stack-list"></div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <div class="eyebrow">Course Rules</div>
+            <h3>Assign Credit Hours</h3>
+          </div>
+          <button id="saveCreditsButton" class="btn btn--secondary" type="button">
+            Save credit hours
+          </button>
+        </div>
+        <div id="courseCreditsTable" class="table-wrap"></div>
+        <div id="creditsMessage" class="notice notice--hidden"></div>
+      </section>
+
+      <section class="dashboard-grid dashboard-grid--two">
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Exam Safety</div>
+              <h3>Detect Exam Schedule Conflicts</h3>
+            </div>
+            <button id="refreshConflictsButton" class="btn btn--secondary" type="button">
+              Re-check conflicts
+            </button>
+          </div>
+          <div id="examConflicts" class="stack-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Faculty Support</div>
+              <h3>Assign Substitute Teachers</h3>
+            </div>
+          </div>
+
+          <form id="substituteForm" class="form-grid">
+            <label>
+              <span>Course</span>
+              <select id="substituteCourse" required></select>
+            </label>
+
+            <label>
+              <span>Date</span>
+              <input id="substituteDate" type="date" required />
+            </label>
+
+            <label class="form-grid__full">
+              <span>Substitute instructor</span>
+              <select id="substituteInstructor" required></select>
+            </label>
+
+            <button class="btn btn--primary form-grid__full" type="submit">
+              Save substitute assignment
+            </button>
+          </form>
+
+          <div id="substituteMessage" class="notice notice--hidden"></div>
+          <div id="substituteList" class="stack-list"></div>
+        </article>
+      </section>
+
+      <section class="panel">
+        <div class="panel__header">
+          <div>
+            <div class="eyebrow">Quality Check</div>
+            <h3>Ensure GPA Calculation Is Correct</h3>
+          </div>
+          <button id="syncGpaButton" class="btn btn--secondary" type="button">
+            Sync GPA snapshots
+          </button>
+        </div>
+        <div id="gpaAudit" class="table-wrap"></div>
+        <div id="gpaMessage" class="notice notice--hidden"></div>
+      </section>
+    </main>
+  </body>
+</html>

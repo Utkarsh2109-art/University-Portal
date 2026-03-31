@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student Dashboard | CampusFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+    <script src="js/student.js" defer></script>
+  </head>
+  <body class="dashboard-page" data-page="student">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">Student Dashboard</div>
+        <h1>My Academic Workspace</h1>
+      </div>
+      <div class="topbar__actions">
+        <span id="studentIdentity" class="pill"></span>
+        <button id="studentLogout" class="btn btn--secondary" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero-card">
+        <div>
+          <div class="eyebrow">Progress Snapshot</div>
+          <h2 id="studentGreeting">Stay on top of classes, exams, and submissions.</h2>
+          <p>
+            This dashboard combines materials, assignments, marks, CGPA, attendance,
+            timetable details, and downloadable results in one place.
+          </p>
+        </div>
+        <div id="studentStats" class="hero-card__meta"></div>
+      </section>
+
+      <section id="attendanceAlerts"></section>
+
+      <section class="dashboard-grid dashboard-grid--two">
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Materials</div>
+              <h3>View & Download Course Materials</h3>
+            </div>
+          </div>
+          <div id="materialsList" class="stack-list"></div>
+          <div id="materialPreview" class="note-card"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Assignments</div>
+              <h3>Submission Tracker</h3>
+            </div>
+          </div>
+          <div id="assignmentsList" class="stack-list"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid dashboard-grid--two">
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Grades</div>
+              <h3>Marks, Letter Grades, Semester CGPA</h3>
+            </div>
+          </div>
+          <div id="cgpaCards" class="stat-grid"></div>
+          <div id="marksTables" class="stack-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Exams & Results</div>
+              <h3>Timetable, Room Link, Upcoming Exams</h3>
+            </div>
+            <button id="downloadResultPdf" class="btn btn--primary" type="button">
+              Download result PDF
+            </button>
+          </div>
+          <div id="examTable" class="table-wrap"></div>
+          <div id="upcomingExams" class="stack-list"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid dashboard-grid--two">
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Attendance</div>
+              <h3>Attendance Percentage Per Subject</h3>
+            </div>
+          </div>
+          <div id="attendanceTable" class="table-wrap"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Weekly Schedule</div>
+              <h3>Classroom Number + Teacher Name</h3>
+            </div>
+          </div>
+          <div id="timetableTable" class="table-wrap"></div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

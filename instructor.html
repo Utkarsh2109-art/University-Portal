@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instructor Dashboard | CampusFlow</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+    <script src="js/instructor.js" defer></script>
+  </head>
+  <body class="dashboard-page" data-page="instructor">
+    <header class="topbar">
+      <div>
+        <div class="eyebrow">Instructor Dashboard</div>
+        <h1>Teaching Operations Board</h1>
+      </div>
+      <div class="topbar__actions">
+        <span id="instructorIdentity" class="pill"></span>
+        <button id="instructorLogout" class="btn btn--secondary" type="button">Logout</button>
+      </div>
+    </header>
+
+    <main class="page-shell">
+      <section class="hero-card">
+        <div>
+          <div class="eyebrow">Course Oversight</div>
+          <h2 id="instructorGreeting">Review submissions, protect module access, and publish grades.</h2>
+          <p>
+            The teaching view shows submitted vs pending assignments, late flags,
+            grade publishing checks, attendance marking, and monthly report export.
+          </p>
+        </div>
+        <div id="instructorStats" class="hero-card__meta"></div>
+      </section>
+
+      <section class="dashboard-grid dashboard-grid--two">
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Assignment Control</div>
+              <h3>Submitted vs Pending + Late Flags</h3>
+            </div>
+          </div>
+          <div id="submissionDashboard" class="table-wrap"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Module Access</div>
+              <h3>Prevent Students From Accessing Next Module</h3>
+            </div>
+          </div>
+          <div id="moduleLockList" class="stack-list"></div>
+        </article>
+      </section>
+
+      <section class="dashboard-grid dashboard-grid--two">
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Grade Publishing</div>
+              <h3>Publish Grades Only After Marking Completion</h3>
+            </div>
+          </div>
+
+          <div class="inline-field">
+            <label>
+              <span>Course</span>
+              <select id="gradeCourseSelect"></select>
+            </label>
+          </div>
+
+          <div id="gradebookTable" class="table-wrap"></div>
+          <div class="action-row">
+            <button id="saveGradebookButton" class="btn btn--secondary" type="button">
+              Save marks
+            </button>
+            <button id="publishGradesButton" class="btn btn--primary" type="button">
+              Publish grades
+            </button>
+          </div>
+          <div id="gradebookMessage" class="notice notice--hidden"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Attendance</div>
+              <h3>Mark Attendance & Export Monthly Report</h3>
+            </div>
+          </div>
+
+          <div class="attendance-controls">
+            <label>
+              <span>Course</span>
+              <select id="attendanceCourseSelect"></select>
+            </label>
+            <label>
+              <span>Date</span>
+              <input id="attendanceDate" type="date" />
+            </label>
+          </div>
+
+          <div id="attendanceMarkingTable" class="table-wrap"></div>
+
+          <div class="action-row">
+            <button id="saveAttendanceButton" class="btn btn--secondary" type="button">
+              Save attendance
+            </button>
+            <button id="exportAttendanceButton" class="btn btn--primary" type="button">
+              Export monthly report
+            </button>
+          </div>
+
+          <div id="attendanceReport" class="table-wrap"></div>
+          <div id="attendanceMessage" class="notice notice--hidden"></div>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>

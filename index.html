@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CampusFlow Portal</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Space+Grotesk:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/main.js" defer></script>
+  </head>
+  <body class="auth-page" data-page="auth">
+    <main class="auth-shell">
+      <section class="brand-panel">
+        <div class="eyebrow">CampusFlow Portal</div>
+        <h1>Role-based academic dashboard built with HTML, CSS, and JavaScript.</h1>
+        <p>
+          The admin signs in first, creates student and instructor accounts, and the
+          generated IDs are then used for secure role-based login.
+        </p>
+
+        <div class="feature-stack">
+          <article class="mini-card">
+            <span class="mini-card__label">Admin</span>
+            <p>Account provisioning, credit hours, exam conflict detection, GPA audit.</p>
+          </article>
+          <article class="mini-card">
+            <span class="mini-card__label">Student</span>
+            <p>Materials, submissions, marks, CGPA, attendance, timetable, results PDF.</p>
+          </article>
+          <article class="mini-card">
+            <span class="mini-card__label">Instructor</span>
+            <p>Late flags, module lock, grade publishing, attendance marking, exports.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="auth-panel">
+        <div class="panel panel--glass">
+          <div class="panel__header">
+            <div>
+              <div class="eyebrow">Login Securely</div>
+              <h2>Welcome back</h2>
+            </div>
+            <span class="pill">Admin-managed signup only</span>
+          </div>
+
+          <form id="loginForm" class="form-grid form-grid--single">
+            <label>
+              <span>User ID</span>
+              <input id="uid" name="uid" type="text" placeholder="Enter UID" required />
+            </label>
+
+            <label>
+              <span>Password</span>
+              <input
+                id="password"
+                name="password"
+                type="password"
+                placeholder="Enter password"
+                required
+              />
+            </label>
+
+            <button class="btn btn--primary" type="submit">Sign in</button>
+          </form>
+
+          <div id="loginMessage" class="notice notice--hidden"></div>
+
+          <div class="credential-box">
+            <div>
+              <h3>Default admin access</h3>
+              <p>Use the seeded admin account once, then create student and instructor users.</p>
+            </div>
+            <div class="credential-box__meta">
+              <span><strong>UID:</strong> ADM001</span>
+              <span><strong>Password:</strong> Admin@123</span>
+            </div>
+            <button id="prefillAdmin" class="btn btn--secondary" type="button">
+              Use admin credentials
+            </button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
